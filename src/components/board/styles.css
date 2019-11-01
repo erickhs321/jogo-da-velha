@@ -1,10 +1,29 @@
 #board {
+  box-sizing: border-box;
   width: 300px;
   height: 300px;
-  display: grid;
+  background-color: #fff;
   box-shadow: 0px 2px 6px rgba(52, 81, 94, 0.35);
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#square-container {
+  display: grid;
+  grid-gap: 5px;
+  box-sizing: border-box;
+  width: 280px;
+  height: 280px;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 50;
   padding-bottom: 0;
+  background-color: #AABDC6;
+  grid-template-rows: repeat(3, 1fr);
+  border-radius: 2.5px;
 }
 
 #information-box {

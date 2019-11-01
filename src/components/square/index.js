@@ -1,7 +1,8 @@
 import React from 'react';
+import './styles.css'
 
 export default function Square() {
   return (
-    <div>Quadrado</div>
+    <div id="square"></div>
   );
 }
