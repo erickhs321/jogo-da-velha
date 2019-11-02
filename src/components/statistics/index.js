@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { ReactComponent as Close } from '../../assets/Fechar.svg';
 import './style.css';
 
