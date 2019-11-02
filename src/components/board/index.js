@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import Square from '../square';
-import Button from '../button';
 import Statistics from '../statistics';
 import './styles.css';
 
 export default function Board() {
+  const [showStatistics, setShowStatistics] = useState(false);
+
+  function setVisibleStatistics() {
+    setShowStatistics(true);
+  }
+
   return (
     <>
       <div id="board-container">
@@ -25,8 +30,8 @@ export default function Board() {
           <span>Vez de: Jogador</span>
         </div>
         <div id="buttons-container">
-          <Button text="Jogar Novamente" />
-          <Button text="Ver Estatísticas" />
+          <button>Jogar Novamente</button>
+          <button onClick={setVisibleStatistics}>Ver Estatísticas</button>
         </div>
         <span id="change-players">Alterar Jogadores</span>
       </div>
