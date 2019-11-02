@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import Square from '../square';
 import './styles.css';
 
-export default function Board({turn, player1, player2, onClick}) {
+export default function Board({turn, player1, player2, toggleTurn}) {
 
   function renderSquare(i) {
     return (
       <Square
-        value={turn}
+        turn={turn}
         position={i}
+        toggleTurn={toggleTurn}
       />
     );
   }
@@ -30,7 +31,7 @@ export default function Board({turn, player1, player2, onClick}) {
           </div>
         </div>
         <div id="information-box">
-          <span>Vez de: {turn === 1 ? player1 : player2 }</span>
+          <span>Vez de: {turn ? player1 : player2 }</span>
         </div>
       </div>
     </>

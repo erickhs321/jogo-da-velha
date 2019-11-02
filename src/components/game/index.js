@@ -8,13 +8,9 @@ import './styles.css';
 
 export default function Game() {
   const [showStatistics, setShowStatistics] = useState(false);
-  const [turn, setTurn] = useState();
+  const [turn, setTurn] = useState(false);
   const [player1, setPlayer1] = useState('Jogador 1');
   const [player2, setPlayer2] = useState('Jogador 2');
-
-  useEffect(() => {
-    rafflePlayer();
-  });
 
   function toggleShowStatistics() {
     setShowStatistics(!showStatistics);
@@ -35,7 +31,7 @@ export default function Game() {
       <Logo />
       <h1>Jogo da velha</h1>
     </div>
-      <Board turn={turn} player1={player1} player2={player2} />
+      <Board toggleTurn={toggleTurn} turn={turn} player1={player1} player2={player2} />
       <div id="buttons-container">
         <Button text="Jogar Novamente" />
         <Button text="Ver Estatísticas" onClick={setShowStatistics} />
