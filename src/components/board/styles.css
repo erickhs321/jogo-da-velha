@@ -6,13 +6,15 @@
   box-shadow: 0px 2px 6px rgba(52, 81, 94, 0.35);
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 #square-container {
+  background-image: url("../../assets/Linhas.svg");
   display: grid;
-  grid-gap: 5px;
   box-sizing: border-box;
   width: 280px;
   height: 280px;
@@ -21,15 +23,20 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 50;
   padding-bottom: 0;
-  background-color: #AABDC6;
   grid-template-rows: repeat(3, 1fr);
   border-radius: 2.5px;
 }
 
 #information-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  box-sizing: border-box;
   height: 60px;
+  padding-top: 15px;
   background: linear-gradient(176.4deg, #30CB76 9.19%, #18CA68 91.81%);
-  margin-bottom: -10px;
+  margin-top: -15px;
+  color: #fff;
 }
