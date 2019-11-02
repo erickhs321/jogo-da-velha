@@ -50,6 +50,8 @@
 }
 
 #buttons-container {
+  width: 100%;
+  display: flex;
   margin-top: 30px;
   margin-bottom: 82px;
 }
@@ -65,4 +67,18 @@ Button:first-of-type {
   text-transform: uppercase;
   color: #34515E;
   font-size: 12px;
+}
+
+@media screen and (max-width: 767px) {
+  #buttons-container {
+    flex-direction: column;
+  }
+
+  Button {
+    width: 100%;
+  }
+
+  Button:first-of-type {
+    margin-bottom: 8px;
+  }
 }

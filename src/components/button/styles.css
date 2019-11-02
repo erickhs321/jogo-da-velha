@@ -1,7 +1,7 @@
 #button {
   font-family: Roboto Mono;
-  height: 40px;
-  width: 145px;
+  min-height: 40px;
+  min-width: 145px;
   border-radius: 10px;
   border: 1px solid #34515E;
   color: #34515E;
