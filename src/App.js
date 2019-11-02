@@ -1,5 +1,7 @@
 import React from 'react';
 import Board from './components/board';
+import "typeface-roboto";
+import "typeface-roboto-mono";
 import './App.css';
 
 function App() {

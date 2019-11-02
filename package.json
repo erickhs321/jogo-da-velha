@@ -5,7 +5,9 @@
   "dependencies": {
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "typeface-roboto": "^0.0.75",
+    "typeface-roboto-mono": "^0.0.75"
   },
   "scripts": {
     "start": "react-scripts start",
