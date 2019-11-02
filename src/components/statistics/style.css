@@ -74,6 +74,7 @@
   position: absolute;
   top: 15px;
   right: 15px;
+  cursor: pointer;
 }
 
 h2 {
@@ -107,7 +108,7 @@ h2 {
 
 #x {
   font-size: 30px;
-  color:  #AABDC6
+  color:  #AABDC6;
 }
 
 .time-value, .time-title, .time-total {

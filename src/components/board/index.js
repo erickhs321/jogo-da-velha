@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
 import Square from '../square';
-import Statistics from '../statistics';
 import './styles.css';
 
 export default function Board() {
-  const [showStatistics, setShowStatistics] = useState(false);
-
-  function toggleShowStatistics() {
-    setShowStatistics(!showStatistics)
-  }
 
   return (
     <>
@@ -27,16 +21,10 @@ export default function Board() {
           </div>
         </div>
         <div id="information-box">
-          <span>Vez de: Jogador</span>
-        </div>
-        <div id="buttons-container">
-          <button>Jogar Novamente</button>
-          <button onClick={toggleShowStatistics}>Ver Estatísticas</button>
+          <span>Vez de:</span>
         </div>
         <span id="change-players">Alterar Jogadores</span>
       </div>
-
-    { showStatistics && <Statistics toggleShowStatistics={toggleShowStatistics} /> }
     </>
   );
 }
