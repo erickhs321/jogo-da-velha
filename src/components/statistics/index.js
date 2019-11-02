@@ -1,16 +1,13 @@
 import React, { useState, useRef } from 'react';
 import { ReactComponent as Close } from '../../assets/Fechar.svg';
-import ReactDOM from 'react-dom';
 import './style.css';
 
-export default function Statistics() {
+export default function Statistics({toggleShowStatistics}) {
 
-  function closeShowStatistics() {
-  }
   return (
     <div id="background">
       <div id="statistics">
-        <Close id="close" onClick={closeShowStatistics} />
+        <Close id="close" onClick={toggleShowStatistics} />
         <h2>Estatísticas</h2>
         <div className="row">
           <div className="player-infos player-1">

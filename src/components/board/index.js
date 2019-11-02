@@ -6,8 +6,8 @@ import './styles.css';
 export default function Board() {
   const [showStatistics, setShowStatistics] = useState(false);
 
-  function setVisibleStatistics() {
-    setShowStatistics(true);
+  function toggleShowStatistics() {
+    setShowStatistics(!showStatistics)
   }
 
   return (
@@ -31,12 +31,12 @@ export default function Board() {
         </div>
         <div id="buttons-container">
           <button>Jogar Novamente</button>
-          <button onClick={setVisibleStatistics}>Ver Estatísticas</button>
+          <button onClick={toggleShowStatistics}>Ver Estatísticas</button>
         </div>
         <span id="change-players">Alterar Jogadores</span>
       </div>
 
-      <Statistics />
+    { showStatistics && <Statistics toggleShowStatistics={toggleShowStatistics} /> }
     </>
   );
 }
