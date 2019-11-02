@@ -13,14 +13,14 @@ export default function Statistics() {
         <Close id="close" onClick={closeShowStatistics} />
         <h2>Estatísticas</h2>
         <div className="row">
-          <div className="player-infos">
+          <div className="player-infos player-1">
             <p>3</p>
             <p>jogador 1</p>
           </div>
-          <p>X</p>
-          <div className="player-infos">
+          <span id="x">x</span>
+          <div className="player-infos player-2">
             <p>3</p>
-            <p>jogador 1</p>
+            <p>jogador 2</p>
           </div>
         </div>
         <div className="row"></div>
