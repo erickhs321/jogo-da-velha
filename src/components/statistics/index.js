@@ -5,7 +5,7 @@ import './style.css';
 export default function Statistics({toggleShowStatistics}) {
 
   return (
-    <div id="background">
+    <div id="background" onClick={toggleShowStatistics}>
       <div id="statistics">
         <Close id="close" onClick={toggleShowStatistics} />
         <h2>Estatísticas</h2>
