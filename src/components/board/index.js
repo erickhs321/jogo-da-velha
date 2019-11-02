@@ -1,7 +1,8 @@
 import React from 'react';
 import Square from '../square';
-import Button from '../button'
-import './styles.css'
+import Button from '../button';
+import './styles.css';
+
 export default function Board() {
   return (
     <div id="board-container">
