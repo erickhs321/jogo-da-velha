@@ -25,6 +25,7 @@ export default function Board() {
         <Button text="Jogar Novamente" />
         <Button text="Ver Estatísticas" />
       </div>
+      <span id="change-players">Alterar Jogadores</span>
     </div>
   );
 }
