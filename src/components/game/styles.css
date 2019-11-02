@@ -3,3 +3,12 @@
   margin-bottom: 82px;
   justify-content: center;
 }
+
+#change-players {
+  font-family: Roboto Mono;
+  text-decoration: underline;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #34515E;
+  font-size: 12px;
+}

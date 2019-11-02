@@ -3,11 +3,10 @@ import './styles.css'
 import { ReactComponent as Circle } from '../../assets/Bolinha.svg';
 import { ReactComponent as X } from '../../assets/Xizinho.svg';
 
-export default function Square({props}) {
+export default function Square({turn}) {
   return (
     <div id="square">
-      <Circle />
-      <X />
+      {turn === 1 ? <Circle /> : <X />}
     </div>
   );
 }

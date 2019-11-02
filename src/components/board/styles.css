@@ -49,16 +49,6 @@
   color: #fff;
 }
 
-
-#change-players {
-  font-family: Roboto Mono;
-  text-decoration: underline;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #34515E;
-  font-size: 12px;
-}
-
 @media screen and (max-width: 767px) {
   #buttons-container {
     flex-direction: column;
