@@ -37,6 +37,14 @@
   height: 60px;
   padding-top: 15px;
   background: linear-gradient(176.4deg, #30CB76 9.19%, #18CA68 91.81%);
-  margin-top: -15px;
+  margin-top: -10px;
   color: #fff;
+}
+
+#buttons-container {
+  margin-top: 30px;
+}
+
+Button:first-of-type {
+  margin-right: 10px ;
 }

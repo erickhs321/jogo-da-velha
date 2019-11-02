@@ -21,7 +21,7 @@ export default function Board() {
       <div id="information-box">
         <span>Vez de: Jogador</span>
       </div>
-      <div id="button-container">
+      <div id="buttons-container">
         <Button text="Jogar Novamente" />
         <Button text="Ver Estatísticas" />
       </div>

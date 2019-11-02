@@ -1,9 +1,10 @@
 import React from 'react';
+import './styles.css';
 
 export default function Button(props){
-  const { text, color, backgroundColor } = props;
+  const { text } = props;
 
   return (
-    <button style={`color: ${color}`}>{ text }</button>
+    <button id="button"> { text }</button>
   );
 }

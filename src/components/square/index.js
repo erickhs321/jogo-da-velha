@@ -6,8 +6,8 @@ import { ReactComponent as X } from '../../assets/Xizinho.svg';
 export default function Square(props) {
   return (
     <div id="square">
-      {/* <Circle /> */}
-      <X />
+      <Circle />
+      {/* <X /> */}
     </div>
   );
 }
