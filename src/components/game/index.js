@@ -20,6 +20,10 @@ export default function Game() {
     setShowStatistics(!showStatistics);
   }
 
+  function toggleTurn() {
+    setTurn(!turn);
+  }
+
   function rafflePlayer() {
     const turn = Math.floor(Math.random() * 2) + 1
     setTurn(turn);
