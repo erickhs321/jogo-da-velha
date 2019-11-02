@@ -1,6 +1,6 @@
 #background {
   width: 100%;
-  height: 110%;
+  height: 120%;
   background: rgba(0, 0, 0, 0.8);
   position: absolute;
   display: flex;
@@ -25,36 +25,50 @@
   box-sizing: border-box;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .row:first-of-type {
-  width: 85%;
   height: 70px;
   text-align: center;
   display: flex;
   align-items: center;
 }
 
-.row:nth-of-type(2) {
-  align-items: center;
-  margin-top: 19.5px;
+.row:nth-child(1), .row:nth-child(2) {
+  height: 20px;
+}
+.row:nth-child(1) {
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+.row:nth-child(2) {
+  padding-right: 8%;
+  padding-left: 8%;
+}
+
+.container-time {
+  box-sizing: border-box;
+  height: 69.5px;
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-top: 28.5px;
   border-top: 1px solid #AABDC6;
-  padding-left: 48px;
-  padding-right: 48px;
-  margin-bottom: -12px;
-}
-
-.row:nth-of-type(3) {
   border-bottom: 1px solid #AABDC6;
-  padding-left: 48px;
-  padding-right: 48px;
-}
-
-.row:last-of-type {
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+.total-time {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 #close {
   position: absolute;
@@ -107,4 +121,17 @@ h2 {
 .time-total {
   font-weight: bold;
   margin-top: -5px;
+}
+
+@media screen and (max-width: 767px) {
+  #buttons-container {
+    flex-direction: column;
+  }
+
+  #statistics {
+    width: 90%;
+  }
+  .time-value, .time-title, .time-total {
+    font-size: 10px;
+  }
 }
