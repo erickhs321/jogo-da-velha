@@ -1,17 +1,32 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Square from '../square';
 import './styles.css';
 
-export default function Board({turn, player1, player2, toggleTurn}) {
+export default function Board(props) {
+  const { turn, player1, toggleTurn, calculateWinner } = props
+  const [board, setBoard] = useState(Array(9).fill(null));
+
 
   function renderSquare(i) {
     return (
       <Square
-        turn={turn}
-        position={i}
-        toggleTurn={toggleTurn}
+        key={i}
+        value={board[i]}
+        onClick={() => handleClick(i)}
       />
     );
+  }
+
+  function handleClick(i) {
+    const squares = board.slice();
+    if(calculateWinner(squares) || squares[i])
+    {
+      return;
+    }
+
+    squares[i] = turn === player1 ? 'o' : 'x'
+    setBoard(squares);
+    toggleTurn();
   }
 
   return (
@@ -19,19 +34,12 @@ export default function Board({turn, player1, player2, toggleTurn}) {
       <div id="board-container">
         <div id="board">
           <div id="square-container">
-            {renderSquare(0)}
-            {renderSquare(1)}
-            {renderSquare(2)}
-            {renderSquare(3)}
-            {renderSquare(4)}
-            {renderSquare(5)}
-            {renderSquare(6)}
-            {renderSquare(7)}
-            {renderSquare(8)}
+            {
+              board.map((square, index) => {
+                return renderSquare(index)
+              })
+            }
           </div>
-        </div>
-        <div id="information-box">
-          <span>Vez de: {turn ? player1 : player2 }</span>
         </div>
       </div>
     </>

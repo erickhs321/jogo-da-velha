@@ -1,0 +1,13 @@
+#information-box {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-top: 25px;
+  padding-bottom: 17px;
+  background: linear-gradient(176.4deg, #30CB76 9.19%, #18CA68 91.81%);
+  margin-top: -10px;
+  color: #fff;
+}
