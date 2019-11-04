@@ -43,7 +43,7 @@ export default function Board(props) {
       return;
     }
 
-    squares[i] = turn === player1 ? 'o' : 'x'
+    squares[i] = turn === player1 ? 'x' : 'o'
     setBoard(squares);
     toggleTurn();
   }

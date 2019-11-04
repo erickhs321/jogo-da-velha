@@ -2,8 +2,9 @@ import React from 'react';
 import { ReactComponent as Close } from '../../assets/Fechar.svg';
 import './style.css';
 
-export default function Statistics({toggleShowStatistics}) {
+export default function Statistics(props) {
 
+  const { toggleShowStatistics, player1Victories, player2Victories } = props;
   return (
     <div id="background">
       <div id="statistics">
@@ -11,12 +12,12 @@ export default function Statistics({toggleShowStatistics}) {
         <h2>Estatísticas</h2>
         <div className="row">
           <div className="player-infos player-1">
-            <p>3</p>
+            <p>{player1Victories}</p>
             <p>jogador 1</p>
           </div>
           <span id="x">x</span>
           <div className="player-infos player-2">
-            <p>3</p>
+            <p>{player2Victories}</p>
             <p>jogador 2</p>
           </div>
         </div>

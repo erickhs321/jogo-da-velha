@@ -14,6 +14,8 @@ export default function Game() {
   const [winner, setWinner] = useState('');
   const [player1, setPlayer1] = useState('Jogador 1');
   const [player2, setPlayer2] = useState('Jogador 2');
+  const [player1Victories, setPlayer1Victories] = useState(0);
+  const [player2Victories, setPlayer2Victories] = useState(0);
   const [turn, setTurn] = useState(player1);
   const [board, setBoard] = useState(Array(9).fill(null));
 
@@ -35,6 +37,7 @@ export default function Game() {
 
   function startGame() {
     setBoard(Array(9).fill(null));
+    setWinner('');
     setGameIsRunning(true);
     rafflePlayer();
   }
@@ -55,12 +58,17 @@ export default function Game() {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         setWinningMove([a, b, c]);
-        setWinner(squares[a] === 'o' ? player1 : player2)
+        if(squares[a] === 'x' ) {
+          setWinner(player1);
+          setPlayer1Victories(player1Victories + 1)
+        }else {
+          setWinner(player2);
+          setPlayer2Victories(player2Victories + 1)
+        }
       }
     }
     return null;
   }
-
 
   return (
     <>
@@ -91,11 +99,17 @@ export default function Game() {
           />
           <InformationBox winner={winner} turn={turn}/>
           <div id="buttons-container">
-            <Button text="Jogar Novamente" />
+            <Button text="Jogar Novamente" onClick={startGame} />
             <Button text="Ver Estatísticas" onClick={setShowStatistics} />
           </div>
           <span id="change-players" onClick={() => setGameIsRunning(false)}>Alterar Jogadores</span>
-          {showStatistics && <Statistics toggleShowStatistics={toggleShowStatistics} />}
+          { showStatistics &&
+            <Statistics
+              toggleShowStatistics={toggleShowStatistics}
+              player1Victories={player1Victories}
+              player2Victories={player2Victories}
+            />
+          }
         </>
       )}
     </>
