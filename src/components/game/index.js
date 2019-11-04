@@ -10,6 +10,7 @@ import './styles.css';
 export default function Game() {
   const [showStatistics, setShowStatistics] = useState(false);
   const [gameIsRunning, setGameIsRunning] = useState(false);
+  const [winningMove, setWinningMove] = useState([]);
   const [winner, setWinner] = useState('');
   const [player1, setPlayer1] = useState('Jogador 1');
   const [player2, setPlayer2] = useState('Jogador 2');
@@ -51,6 +52,7 @@ export default function Game() {
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+        setWinningMove([a, b, c]);
         setWinner(squares[a] === 'o' ? player1 : player2)
       }
     }
@@ -74,7 +76,15 @@ export default function Game() {
       }
       { gameIsRunning && (
         <>
-          <Board calculateWinner={calculateWinner} winner={winner} toggleTurn={toggleTurn} turn={turn} player1={player1} player2={player2} />
+          <Board
+            calculateWinner={calculateWinner}
+            winner={winner}
+            winningMove={winningMove}
+            toggleTurn={toggleTurn}
+            turn={turn}
+            player1={player1}
+            player2={player2}
+          />
           <InformationBox winner={winner} turn={turn}/>
           <div id="buttons-container">
             <Button text="Jogar Novamente" />

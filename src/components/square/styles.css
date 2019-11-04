@@ -5,3 +5,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.winningMove svg path{
+  fill: blue!important;
+}
+
+.notWinningMove svg path {
+  fill: #AABDC6;
+}

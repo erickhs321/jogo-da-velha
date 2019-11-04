@@ -3,7 +3,7 @@ import Square from '../square';
 import './styles.css';
 
 export default function Board(props) {
-  const { turn, player1, toggleTurn, calculateWinner, winner } = props
+  const { turn, player1, toggleTurn, calculateWinner, winner, winningMove } = props
   const [board, setBoard] = useState(Array(9).fill(null));
 
   useEffect(() => {
@@ -15,9 +15,15 @@ export default function Board(props) {
       <Square
         key={i}
         value={board[i]}
+        isWinningMove={isWinningMove(i)}
+        winner={winner}
         onClick={() => handleClick(i)}
       />
     );
+  }
+
+  function isWinningMove(i) {
+    return winningMove.includes(i);
   }
 
   function handleClick(i) {
