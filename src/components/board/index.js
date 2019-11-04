@@ -3,11 +3,20 @@ import Square from '../square';
 import './styles.css';
 
 export default function Board(props) {
-  const { turn, player1, toggleTurn, calculateWinner, winner, winningMove } = props
-  const [board, setBoard] = useState(Array(9).fill(null));
+  const {
+    turn,
+    player1,
+    toggleTurn,
+    calculateWinner,
+    winner, winningMove,
+    board,
+    setBoard
+  } = props
 
   useEffect(() => {
-    calculateWinner(board);
+    if(!winner){
+      calculateWinner(board);
+    }
   });
 
   function renderSquare(i) {
@@ -28,6 +37,7 @@ export default function Board(props) {
 
   function handleClick(i) {
     const squares = board.slice();
+    calculateWinner(board);
     if(winner || squares[i])
     {
       return;

@@ -15,6 +15,7 @@ export default function Game() {
   const [player1, setPlayer1] = useState('Jogador 1');
   const [player2, setPlayer2] = useState('Jogador 2');
   const [turn, setTurn] = useState(player1);
+  const [board, setBoard] = useState(Array(9).fill(null));
 
 
   function toggleShowStatistics() {
@@ -33,6 +34,7 @@ export default function Game() {
   }
 
   function startGame() {
+    setBoard(Array(9).fill(null));
     setGameIsRunning(true);
     rafflePlayer();
   }
@@ -84,6 +86,8 @@ export default function Game() {
             turn={turn}
             player1={player1}
             player2={player2}
+            board={board}
+            setBoard={setBoard}
           />
           <InformationBox winner={winner} turn={turn}/>
           <div id="buttons-container">
