@@ -8,7 +8,6 @@ export default function InformationBox(props) {
     <div id="information-box">
       {!winner && <span>Vez de: {turn}</span>}
       {winner && <span>{winner} Venceu</span>}
-      {console.log(winner)}
     </div>
   )
 }
