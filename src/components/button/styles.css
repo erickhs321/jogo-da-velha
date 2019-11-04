@@ -24,3 +24,7 @@ button:hover {
 button:focus {
   outline: 0;
 }
+
+button[disabled]{
+  cursor: not-allowed;
+}

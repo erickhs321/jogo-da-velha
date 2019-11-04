@@ -10,6 +10,7 @@ import './styles.css';
 export default function Game() {
   const [showStatistics, setShowStatistics] = useState(false);
   const [gameIsRunning, setGameIsRunning] = useState(false);
+  const [matchIsOver, setMatchIsOver] = useState(false);
   const [winningMove, setWinningMove] = useState([]);
   const [winner, setWinner] = useState('');
   const [player1, setPlayer1] = useState('Jogador 1');
@@ -39,6 +40,7 @@ export default function Game() {
     setBoard(Array(9).fill(null));
     setWinner('');
     setGameIsRunning(true);
+    setMatchIsOver(false);
     rafflePlayer();
   }
 
@@ -65,6 +67,7 @@ export default function Game() {
           setWinner(player2);
           setPlayer2Victories(player2Victories + 1)
         }
+        setMatchIsOver(true);
       }
     }
     return null;
@@ -99,8 +102,8 @@ export default function Game() {
           />
           <InformationBox winner={winner} turn={turn}/>
           <div id="buttons-container">
-            <Button text="Jogar Novamente" onClick={startGame} />
-            <Button text="Ver Estatísticas" onClick={setShowStatistics} />
+            <Button text="Jogar Novamente" disabled={!matchIsOver} onClick={startGame} />
+            <Button text="Ver Estatísticas" disabled={!matchIsOver} onClick={setShowStatistics} />
           </div>
           <span id="change-players" onClick={() => setGameIsRunning(false)}>Alterar Jogadores</span>
           { showStatistics &&
