@@ -51,7 +51,7 @@ export default function Game() {
     rafflePlayer();
   }
 
-  //verificando se ouvo um empate
+  //verifica se ouve um empate
   function calculateDraw(board) {
     if(!winner && !draw) {
       const haveAnyEmptySquares = board.includes(null);

@@ -8,7 +8,6 @@ export default function Board(props) {
     player1,
     toggleTurn,
     calculateWinner,
-    calculateDraw,
     winner, winningMove,
     board,
     setBoard,
