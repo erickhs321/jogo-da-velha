@@ -12,7 +12,8 @@ export default function Game() {
   const [gameIsRunning, setGameIsRunning] = useState(false);
   const [matchIsOver, setMatchIsOver] = useState(false);
   const [winningMove, setWinningMove] = useState([]);
-  const [winner, setWinner] = useState('');
+  const [draw, setDraw] = useState(false);
+  const [winner, setWinner] = useState(false);
   const [player1, setPlayer1] = useState('Jogador 1');
   const [player2, setPlayer2] = useState('Jogador 2');
   const [player1Victories, setPlayer1Victories] = useState(0);
@@ -26,7 +27,7 @@ export default function Game() {
   }
 
   function toggleTurn() {
-    if(!winner) {
+    if (!winner && !draw) {
       setTurn(turn === player1 ? player2 : player1)
     }
   }
@@ -37,14 +38,30 @@ export default function Game() {
   }
 
   function startGame() {
+    setBoard(["x", "o", "o", "o", "x", "o", "x", "x", "o"]);
     setBoard(Array(9).fill(null));
-    setWinner('');
+    setDraw(false);
+    setWinner(false);
     setGameIsRunning(true);
     setMatchIsOver(false);
     rafflePlayer();
   }
 
-  function calculateWinner(squares) {
+  function calculateDraw(board) {
+    if(!winner && !draw) {
+      const haveAnyEmptySquares = board.includes(null);
+      if (!haveAnyEmptySquares) {
+        setDraw(true);
+        setPlayer1Victories(player1Victories + 1);
+        setPlayer2Victories(player2Victories + 1);
+        setMatchIsOver(true);
+      } else {
+        setDraw(false)
+      }
+    }
+  }
+
+  function calculateWinner(board) {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -58,63 +75,66 @@ export default function Game() {
 
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        setWinningMove([a, b, c]);
-        if(squares[a] === 'x' ) {
+      if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+        if (board[a] === 'x') {
           setWinner(player1);
           setPlayer1Victories(player1Victories + 1)
-        }else {
+        } else {
           setWinner(player2);
           setPlayer2Victories(player2Victories + 1)
         }
-        setMatchIsOver(true);
+        setWinningMove([a, b, c]);
+        return setMatchIsOver(true);
       }
     }
-    return null;
+
+    calculateDraw(board);
   }
 
-  return (
-    <>
-      <div id="title">
-        <Logo />
-        <h1>Jogo da velha</h1>
-      </div>
-      {!gameIsRunning && (
-        <div>
-          <input type="text" value={player1} onChange={(e) => setPlayer1(e.target.value)}/><br></br>
-          <input type="text" value={player2} onChange={(e) => setPlayer2(e.target.value)}/>
-          <Button text="Jogar" onClick={startGame}/>
+    return (
+      <>
+        <div id="title">
+          <Logo />
+          <h1>Jogo da velha</h1>
         </div>
-      )
-      }
-      { gameIsRunning && (
-        <>
-          <Board
-            calculateWinner={calculateWinner}
-            winner={winner}
-            winningMove={winningMove}
-            toggleTurn={toggleTurn}
-            turn={turn}
-            player1={player1}
-            player2={player2}
-            board={board}
-            setBoard={setBoard}
-          />
-          <InformationBox winner={winner} turn={turn}/>
-          <div id="buttons-container">
-            <Button text="Jogar Novamente" disabled={!matchIsOver} onClick={startGame} />
-            <Button text="Ver Estatísticas" disabled={!matchIsOver} onClick={setShowStatistics} />
+        {!gameIsRunning && (
+          <div>
+            <input type="text" value={player1} onChange={(e) => setPlayer1(e.target.value)} /><br></br>
+            <input type="text" value={player2} onChange={(e) => setPlayer2(e.target.value)} />
+            <Button text="Jogar" onClick={startGame} />
           </div>
-          <span id="change-players" onClick={() => setGameIsRunning(false)}>Alterar Jogadores</span>
-          { showStatistics &&
-            <Statistics
-              toggleShowStatistics={toggleShowStatistics}
-              player1Victories={player1Victories}
-              player2Victories={player2Victories}
+        )
+        }
+        {gameIsRunning && (
+          <>
+            <Board
+              calculateWinner={calculateWinner}
+              winner={winner}
+              winningMove={winningMove}
+              toggleTurn={toggleTurn}
+              turn={turn}
+              player1={player1}
+              player2={player2}
+              board={board}
+              setBoard={setBoard}
+              calculateDraw={calculateDraw}
+              draw={draw}
             />
-          }
-        </>
-      )}
-    </>
-  )
-}
+            <InformationBox winner={winner} turn={turn} draw={draw} />
+            <div id="buttons-container">
+              <Button text="Jogar Novamente" disabled={!matchIsOver} onClick={startGame} />
+              <Button text="Ver Estatísticas" disabled={!matchIsOver} onClick={setShowStatistics} />
+            </div>
+            <span id="change-players" onClick={() => setGameIsRunning(false)}>Alterar Jogadores</span>
+            {showStatistics &&
+              <Statistics
+                toggleShowStatistics={toggleShowStatistics}
+                player1Victories={player1Victories}
+                player2Victories={player2Victories}
+              />
+            }
+          </>
+        )}
+      </>
+    )
+  }

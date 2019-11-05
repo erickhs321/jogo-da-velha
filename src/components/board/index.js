@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import Square from '../square';
 import './styles.css';
 
@@ -8,15 +8,22 @@ export default function Board(props) {
     player1,
     toggleTurn,
     calculateWinner,
+    calculateDraw,
     winner, winningMove,
     board,
-    setBoard
-  } = props
+    setBoard,
+    draw
+  } = props;
 
   useEffect(() => {
-    if(!winner){
+    if (!winner) {
       calculateWinner(board);
     }
+
+    // setTimeout()
+    // if (!draw) {
+    //   calculateDraw(board);
+    // }
   });
 
   function renderSquare(i) {
@@ -38,8 +45,7 @@ export default function Board(props) {
   function handleClick(i) {
     const squares = board.slice();
     calculateWinner(board);
-    if(winner || squares[i])
-    {
+    if (winner || squares[i]) {
       return;
     }
 
