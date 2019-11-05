@@ -1,5 +1,7 @@
 #information-box {
   width: 300px;
+  box-sizing: border-box;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,4 +19,8 @@
 
 .finish {
   background: linear-gradient(175.8deg, #FF5C85 9.19%, #FF3266 91.81%);
+}
+.finish span {
+  font-weight: bold;
+  font-size: 20px;
 }
