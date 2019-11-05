@@ -28,7 +28,6 @@
   justify-content: center;
   align-items: center;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 50;
   padding-bottom: 0;
   grid-template-rows: repeat(3, 1fr);
   border-radius: 2.5px;
