@@ -6,7 +6,7 @@ import InformationBox from '../information-box';
 import { ReactComponent as Logo } from '../../assets/Logo.svg';
 import './styles.css';
 
-
+//componente responsável por controlar o jogo
 export default function Game() {
   const [showStatistics, setShowStatistics] = useState(false);
   const [gameIsRunning, setGameIsRunning] = useState(false);
@@ -18,27 +18,31 @@ export default function Game() {
   const [player2, setPlayer2] = useState('Jogador 2');
   const [player1Victories, setPlayer1Victories] = useState(0);
   const [player2Victories, setPlayer2Victories] = useState(0);
+  const [timePlayer1, setTimePlayer1] = useState([]);
+  const [timePlayer2, setTimePlayer2] = useState([]);
   const [turn, setTurn] = useState(player1);
   const [board, setBoard] = useState(Array(9).fill(null));
 
-
+  //exibir/esconder estatísticas
   function toggleShowStatistics() {
     setShowStatistics(!showStatistics);
   }
 
+  // alternar o turno
   function toggleTurn() {
     if (!winner && !draw) {
       setTurn(turn === player1 ? player2 : player1)
     }
   }
 
+  //função responsável por sortear qual o jogador da vez
   function rafflePlayer() {
     const turn = Math.floor(Math.random() * 2) + 1
     setTurn(turn === 1 ? player1 : player2);
   }
 
+  //função responsável por iniciar o jogo
   function startGame() {
-    setBoard(["x", "o", "o", "o", "x", "o", "x", "x", "o"]);
     setBoard(Array(9).fill(null));
     setDraw(false);
     setWinner(false);
@@ -47,6 +51,7 @@ export default function Game() {
     rafflePlayer();
   }
 
+  //verificando se ouvo um empate
   function calculateDraw(board) {
     if(!winner && !draw) {
       const haveAnyEmptySquares = board.includes(null);
@@ -61,6 +66,10 @@ export default function Game() {
     }
   }
 
+  /*
+    verificar se há um ganhador e quando ouver atribuir ele a variável
+    winner do estado
+  */
   function calculateWinner(board) {
     const lines = [
       [0, 1, 2],
