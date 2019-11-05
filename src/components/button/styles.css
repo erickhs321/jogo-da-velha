@@ -15,7 +15,7 @@ button {
   font-weight: bold;
 }
 
-button:hover {
+button:hover:not([disabled]) {
   color: #fff;
   background-color:#34515E;
   cursor: pointer;
@@ -27,4 +27,5 @@ button:focus {
 
 button[disabled]{
   cursor: not-allowed;
+  opacity: 0.5;
 }

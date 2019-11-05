@@ -16,14 +16,9 @@ export default function Board(props) {
   } = props;
 
   useEffect(() => {
-    if (!winner) {
+    if (!winner && !draw) {
       calculateWinner(board);
     }
-
-    // setTimeout()
-    // if (!draw) {
-    //   calculateDraw(board);
-    // }
   });
 
   function renderSquare(i) {
