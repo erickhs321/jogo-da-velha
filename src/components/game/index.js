@@ -14,8 +14,8 @@ export default function Game() {
   const [winningMove, setWinningMove] = useState([]);
   const [draw, setDraw] = useState(false);
   const [winner, setWinner] = useState(false);
-  const [player1, setPlayer1] = useState('Jogador 1');
-  const [player2, setPlayer2] = useState('Jogador 2');
+  const [player1, setPlayer1] = useState('');
+  const [player2, setPlayer2] = useState('');
   const [player1Victories, setPlayer1Victories] = useState(0);
   const [player2Victories, setPlayer2Victories] = useState(0);
   const [timePlayer1, setTimePlayer1] = useState([]);
