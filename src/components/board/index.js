@@ -7,21 +7,19 @@ export default function Board(props) {
     turn,
     player1,
     toggleTurn,
-    calculateWinner,
     winner, winningMove,
     board,
     setBoard,
     draw,
+    calculateWinner,
+    calculateDraw,
     getPlayTime,
     timePlayer1,
     timePlayer2,
   } = props;
 
   useEffect(() => {
-    if (!winner && !draw) {
-      calculateWinner(board);
-      console.log({ timePlayer1, timePlayer2})
-    }
+    console.log({ timePlayer1, timePlayer2})
   });
 
   function renderSquare(i) {
@@ -41,15 +39,17 @@ export default function Board(props) {
   }
 
   function handleClick(i) {
+
     const squares = board.slice();
     if (winner || squares[i]) {
       return;
     }
     squares[i] = turn === player1 ? 'x' : 'o';
-    calculateWinner(board);
     setBoard(squares);
+    const haveWinner = calculateWinner(squares);
+    const haveDraw = calculateDraw(squares);
+    getPlayTime(turn, haveWinner || haveDraw);
     toggleTurn();
-    getPlayTime(turn);
   }
 
   return (

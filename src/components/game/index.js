@@ -23,7 +23,7 @@ export default function Game() {
   const [timePlayer1Average, setTimePlayer1Average] = useState(0);
   const [timePlayer2Average, setTimePlayer2Average] = useState(0);
   const [time, setTime] = useState([]);
-  const [turn, setTurn] = useState(player1);
+  const [turn, setTurn] = useState('');
   const [board, setBoard] = useState(Array(9).fill(null));
 
   //exibir/esconder estatísticas
@@ -42,14 +42,13 @@ export default function Game() {
   function rafflePlayer() {
     const turn = Math.floor(Math.random() * 2) + 1 === 1 ? player1 : player2;
     setTurn(turn);
-    const firstTurn = true;
-    getPlayTime(turn, firstTurn);
+    getPlayTime(turn, true);
   }
 
-  function getPlayTime(turn, firstTurn = false) {
+  function getPlayTime(turn, saveOne ) {
     const date = Date.now();
-
-    if (firstTurn) {
+    if (saveOne || draw) {
+      console.log('oi')
       if (turn === player1) {
         setTimePlayer1([...timePlayer1, date]);
       }
@@ -57,7 +56,6 @@ export default function Game() {
         setTimePlayer2([...timePlayer2, date]);
       }
     } else{
-      console.log({winner, draw})
       if (!winner && !draw) {
         setTimePlayer1([...timePlayer1, date]);
         setTimePlayer2([...timePlayer2, date]);
@@ -77,9 +75,11 @@ export default function Game() {
 
   //verifica se ouve um empate
   function calculateDraw(board) {
+    let draw = false;
     if (!winner && !draw) {
       const haveAnyEmptySquares = board.includes(null);
       if (!haveAnyEmptySquares) {
+        draw = true;
         setDraw(true);
         setPlayer1Victories(player1Victories + 1);
         setPlayer2Victories(player2Victories + 1);
@@ -88,6 +88,7 @@ export default function Game() {
         setDraw(false)
       }
     }
+    return draw;
   }
 
   /*
@@ -106,9 +107,12 @@ export default function Game() {
       [2, 4, 6],
     ];
 
+    let haveWinner = false;
+
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+        haveWinner = true
         if (board[a] === 'x') {
           setWinner(player1);
           setPlayer1Victories(player1Victories + 1)
@@ -117,11 +121,11 @@ export default function Game() {
           setPlayer2Victories(player2Victories + 1)
         }
         setWinningMove([a, b, c]);
-        return setMatchIsOver(true);
+        setMatchIsOver(true);
       }
     }
 
-    calculateDraw(board);
+    return haveWinner;
   }
 
   return (
