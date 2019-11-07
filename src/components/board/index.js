@@ -13,7 +13,8 @@ export default function Board(props) {
     setBoard,
     calculateWinner,
     calculateDraw,
-    getPlayTime
+    getPlayTime,
+    draw
   } = props;
 
   function renderSquare(i) {
@@ -23,6 +24,7 @@ export default function Board(props) {
         value={board[i]}
         isWinningMove={isWinningMove(i)}
         winner={winner}
+        draw={draw}
         onClick={() => handleClick(i)}
       />
     );
@@ -32,13 +34,13 @@ export default function Board(props) {
     return winningMove.includes(i);
   }
 
-  async function handleClick(i) {
+  function handleClick(i) {
     const squares = board.slice();
     if (winner || squares[i]) {
       return;
     }
     squares[i] = turn === player1 ? "x" : "o";
-    const haveWinner = await calculateWinner(squares);
+    const haveWinner = calculateWinner(squares);
     let haveDraw = false;
     if (!haveWinner) {
       haveDraw = calculateDraw(squares);

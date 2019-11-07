@@ -1,20 +1,21 @@
-import React from 'react';
-import './styles.css'
-import { ReactComponent as Circle } from '../../assets/Bolinha.svg';
-import { ReactComponent as X } from '../../assets/Xizinho.svg';
+import React from "react";
+import "./styles.css";
+import { ReactComponent as Circle } from "../../assets/Bolinha.svg";
+import { ReactComponent as X } from "../../assets/Xizinho.svg";
 
-export default function Square({value, onClick, isWinningMove, winner}) {
+export default function Square(props) {
+  const { value, onClick, isWinningMove, winner, draw } = props;
 
-  function setColorWin() {
-    if(!isWinningMove && winner) {
-      return 'notWinningMove'
+  function setLoseColorClass() {
+    if ((!isWinningMove && winner) || draw) {
+      return "notWinningMove";
     }
   }
 
-  return(
-    <div id="square" className={setColorWin()} onClick={onClick}>
-      {value === 'x' ? <X /> : null }
-      {value === 'o' ? <Circle /> : null }
+  return (
+    <div id="square" className={setLoseColorClass()} onClick={onClick}>
+      {value === "x" ? <X /> : null}
+      {value === "o" ? <Circle /> : null}
     </div>
-  )
+  );
 }
