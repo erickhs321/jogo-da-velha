@@ -4,8 +4,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .notWinningMove svg path {
-  fill: #AABDC6;
+  fill: #aabdc6;
 }
