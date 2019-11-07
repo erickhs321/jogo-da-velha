@@ -8,6 +8,8 @@ export default function Statistics(props) {
     player1Victories,
     player2Victories,
     timePlayer1,
+    player1,
+    player2,
     timePlayer2
   } = props;
 
@@ -64,12 +66,12 @@ export default function Statistics(props) {
           <div className="row">
             <div className="player-infos player-1">
               <p>{player1Victories}</p>
-              <p>jogador 1</p>
+              <p>{player1}</p>
             </div>
             <span id="x">x</span>
             <div className="player-infos player-2">
               <p>{player2Victories}</p>
-              <p>jogador 2</p>
+              <p>{player2}</p>
             </div>
           </div>
           <div className="container-time">

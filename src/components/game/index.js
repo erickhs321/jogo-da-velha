@@ -61,6 +61,7 @@ export default function Game() {
   }
 
   //função responsável por iniciar o jogo
+  //limpar dados de tempo somente quando jogador clicar em alterar jogadores
   function startGame() {
     if (!(player1 === "" || player2 === "")) {
       if (!(player1.length > 12 || player2.length > 12)) {
@@ -187,6 +188,8 @@ export default function Game() {
               player2Victories={player2Victories}
               timePlayer1={timePlayer1}
               timePlayer2={timePlayer2}
+              player1={player1}
+              player2={player2}
             />
           )}
         </>
