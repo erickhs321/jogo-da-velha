@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Board from "../board";
 import Button from "../button";
 import Statistics from "../statistics";
@@ -20,11 +20,6 @@ export default function Game() {
   const [player2Victories, setPlayer2Victories] = useState(0);
   const [timePlayer1, setTimePlayer1] = useState([]);
   const [timePlayer2, setTimePlayer2] = useState([]);
-  const [timePlayer1Total, setTimePlayer1Total] = useState(0);
-  const [timePlayer2Total, setTimePlayer2Total] = useState(0);
-  const [timePlayer1Average, setTimePlayer1Average] = useState(0);
-  const [timePlayer2Average, setTimePlayer2Average] = useState(0);
-  const [time, setTime] = useState([]);
   const [turn, setTurn] = useState("");
   const [board, setBoard] = useState(Array(9).fill(null));
 
