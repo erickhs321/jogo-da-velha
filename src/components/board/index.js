@@ -1,26 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import Square from '../square';
-import './styles.css';
+import React, { useState, useEffect } from "react";
+import Square from "../square";
+import "./styles.css";
 
 export default function Board(props) {
   const {
     turn,
     player1,
     toggleTurn,
-    winner, winningMove,
+    winner,
+    winningMove,
     board,
     setBoard,
-    draw,
     calculateWinner,
     calculateDraw,
-    getPlayTime,
-    timePlayer1,
-    timePlayer2,
+    getPlayTime
   } = props;
-
-  useEffect(() => {
-    console.log({ timePlayer1, timePlayer2})
-  });
 
   function renderSquare(i) {
     return (
@@ -38,16 +32,18 @@ export default function Board(props) {
     return winningMove.includes(i);
   }
 
-  function handleClick(i) {
-
+  async function handleClick(i) {
     const squares = board.slice();
     if (winner || squares[i]) {
       return;
     }
-    squares[i] = turn === player1 ? 'x' : 'o';
+    squares[i] = turn === player1 ? "x" : "o";
+    const haveWinner = await calculateWinner(squares);
+    let haveDraw = false;
+    if (!haveWinner) {
+      haveDraw = calculateDraw(squares);
+    }
     setBoard(squares);
-    const haveWinner = calculateWinner(squares);
-    const haveDraw = calculateDraw(squares);
     getPlayTime(turn, haveWinner || haveDraw);
     toggleTurn();
   }
@@ -57,14 +53,12 @@ export default function Board(props) {
       <div id="board-container">
         <div id="board">
           <div id="square-container">
-            {
-              board.map((square, index) => {
-                return renderSquare(index)
-              })
-            }
+            {board.map((square, index) => {
+              return renderSquare(index);
+            })}
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
