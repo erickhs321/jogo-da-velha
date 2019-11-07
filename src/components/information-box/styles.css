@@ -15,11 +15,11 @@
 }
 
 .default {
-  background: linear-gradient(176.4deg, #30CB76 9.19%, #18CA68 91.81%);
+  background: linear-gradient(176.4deg, #30cb76 9.19%, #18ca68 91.81%);
 }
 
 .finish {
-  background: linear-gradient(175.8deg, #FF5C85 9.19%, #FF3266 91.81%);
+  background: linear-gradient(175.8deg, #ff5c85 9.19%, #ff3266 91.81%);
 }
 
 .default span span {
@@ -29,4 +29,13 @@
 .finish span {
   font-weight: bold;
   font-size: 20px;
+}
+
+#information-box span {
+  text-align: center;
+  box-sizing: border-box;
+  width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

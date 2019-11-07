@@ -1,0 +1,70 @@
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto Mono;
+  width: 300px;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(52, 81, 94, 0.35);
+}
+
+#home label {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 13px;
+  width: 100%;
+}
+
+#home svg {
+  width: 10px;
+  height: 10px;
+  margin-left: 5px;
+}
+
+#home button {
+  margin-top: 20px;
+  width: 100%;
+}
+
+#home input {
+  font-family: Roboto;
+  font-size: 12px;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #aabdc6;
+  background-color: transparent;
+}
+
+#home input:focus {
+  outline: 0;
+}
+
+#home button {
+  background: linear-gradient(175.76deg, #30cb76 9.19%, #18ca68 91.81%);
+  color: #fff;
+  border: none;
+  opacity: 0.9;
+}
+
+#home button:hover {
+  opacity: 1;
+}
+
+#home span {
+  color: #34515e;
+  display: flex;
+  align-items: center;
+}
+
+#home .message {
+  margin-bottom: 30px;
+  font-size: 16px;
+  font-weight: bold;
+}

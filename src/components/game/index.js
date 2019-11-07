@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Home from "../home";
 import Board from "../board";
 import Button from "../button";
 import Statistics from "../statistics";
@@ -45,7 +46,6 @@ export default function Game() {
   function getPlayTime(turn, saveOne) {
     const date = Date.now();
     if (saveOne || draw) {
-      console.log("oi");
       if (turn === player1) {
         setTimePlayer1([...timePlayer1, date]);
       }
@@ -62,13 +62,17 @@ export default function Game() {
 
   //função responsável por iniciar o jogo
   function startGame() {
-    setBoard(Array(9).fill(null));
-    setDraw(false);
-    setTurn("");
-    setWinner(false);
-    setGameIsRunning(true);
-    setMatchIsOver(false);
-    rafflePlayer();
+    if (!(player1 === "" || player2 === "")) {
+      if (!(player1.length > 12 || player2.length > 12)) {
+        setBoard(Array(9).fill(null));
+        setDraw(false);
+        setTurn("");
+        setWinner(false);
+        setGameIsRunning(true);
+        setMatchIsOver(false);
+        rafflePlayer();
+      }
+    }
   }
 
   //verifica se ouve um empate
@@ -134,20 +138,13 @@ export default function Game() {
         <h1>Jogo da velha</h1>
       </div>
       {!gameIsRunning && (
-        <div>
-          <input
-            type="text"
-            value={player1}
-            onChange={e => setPlayer1(e.target.value)}
-          />
-          <br></br>
-          <input
-            type="text"
-            value={player2}
-            onChange={e => setPlayer2(e.target.value)}
-          />
-          <Button text="Jogar" onClick={startGame} />
-        </div>
+        <Home
+          player1={player1}
+          player2={player2}
+          setPlayer1={setPlayer1}
+          setPlayer2={setPlayer2}
+          startGame={startGame}
+        />
       )}
       {gameIsRunning && (
         <>

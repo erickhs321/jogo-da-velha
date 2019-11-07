@@ -1,14 +1,10 @@
-button:first-of-type {
-  margin-right: 10px;
-}
-
 button {
   font-family: Roboto Mono;
   min-height: 40px;
   min-width: 145px;
   border-radius: 10px;
-  border: 1px solid #34515E;
-  color: #34515E;
+  border: 1px solid #34515e;
+  color: #34515e;
   background-color: transparent;
   text-transform: uppercase;
   font-size: 12px;
@@ -17,7 +13,7 @@ button {
 
 button:hover:not([disabled]) {
   color: #fff;
-  background-color:#34515E;
+  background-color: #34515e;
   cursor: pointer;
 }
 
@@ -25,7 +21,7 @@ button:focus {
   outline: 0;
 }
 
-button[disabled]{
+button[disabled] {
   cursor: not-allowed;
   opacity: 0.5;
 }

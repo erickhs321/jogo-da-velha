@@ -4,11 +4,15 @@
   justify-content: center;
 }
 
+#buttons-container button {
+  margin-right: 10px;
+}
+
 #change-players {
   font-family: Roboto Mono;
   text-decoration: underline;
   font-weight: bold;
   text-transform: uppercase;
-  color: #34515E;
+  color: #34515e;
   font-size: 12px;
 }
