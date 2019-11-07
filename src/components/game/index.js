@@ -76,6 +76,14 @@ export default function Game() {
     }
   }
 
+  function changePlayers() {
+    setPlayer1Victories(0);
+    setPlayer2Victories(0);
+    setTimePlayer1([]);
+    setTimePlayer2([]);
+    setGameIsRunning(false);
+  }
+
   //verifica se ouve um empate
   function calculateDraw(board) {
     let draw = false;
@@ -178,7 +186,7 @@ export default function Game() {
               onClick={setShowStatistics}
             />
           </div>
-          <span id="change-players" onClick={() => setGameIsRunning(false)}>
+          <span id="change-players" onClick={changePlayers}>
             Alterar Jogadores
           </span>
           {showStatistics && (
