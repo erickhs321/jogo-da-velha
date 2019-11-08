@@ -19,9 +19,12 @@ export default function Home(props) {
       if (!player1Trim || !player2Trim) {
         setTypeAlert("error");
         throw "Todos os campos devem ser preenchidos";
-      } else if (player1Trim.length > 12 || player2Trim.length > 12) {
+      } else if (player1Trim.length > 15 || player2Trim.length > 15) {
         setTypeAlert("error");
-        throw "O tamanho do nome deve ter no máximo 12 caracteres";
+        throw "O tamanho do nome deve ter no máximo 15 caracteres";
+      } else if (player1Trim === player2Trim) {
+        setTypeAlert("error");
+        throw "O nome dos jogadores não podem ser iguais";
       } else {
         setPlayer1(player1Trim);
         setPlayer2(player2Trim);

@@ -25,7 +25,7 @@
   box-sizing: border-box;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -39,13 +39,6 @@
 .row:nth-child(1),
 .row:nth-child(2) {
   height: 20px;
-}
-.row:nth-child(1) {
-  width: 82%;
-}
-
-.row:nth-child(2) {
-  width: 85.5%;
 }
 
 .container-time {
@@ -83,6 +76,28 @@ h2 {
   color: #34515e;
 }
 
+.player-infos,
+.time-value {
+  box-sizing: border-box;
+  width: 22%;
+  text-align: center;
+}
+
+.time-value.player-1,
+.player-infos.player-1 {
+  margin-left: 30px;
+}
+.time-value.player-2,
+.player-infos.player-2 {
+  margin-right: 30px;
+}
+
+.player-infos p {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .player-infos p:first-of-type {
   margin: 0;
   font-size: 30px;
@@ -109,6 +124,11 @@ h2 {
   color: #aabdc6;
 }
 
+.time-title {
+  width: 44%;
+  text-align: center;
+}
+
 .time-value,
 .time-title,
 .time-total {
@@ -122,7 +142,7 @@ h2 {
 
 .time-total {
   font-weight: bold;
-  margin-top: -5px;
+  margin-top: -10px;
 }
 
 @media screen and (max-width: 451px) {
@@ -131,20 +151,21 @@ h2 {
   }
 
   #statistics {
-    width: 90%;
-  }
-
-  .row:nth-child(1) {
-    width: 80%;
-  }
-
-  .row:nth-child(2) {
-    width: 84.2%;
+    width: 95%;
   }
 
   .time-value,
   .time-title,
   .time-total {
     font-size: 10px;
+  }
+
+  .time-value.player-1,
+  .player-infos.player-1 {
+    margin-left: 15px;
+  }
+  .time-value.player-2,
+  .player-infos.player-2 {
+    margin-right: 15px;
   }
 }
