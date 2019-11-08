@@ -61,8 +61,7 @@ export default function Game() {
     }
   }
 
-  //função responsável por iniciar o jogo
-  //limpar dados de tempo somente quando jogador clicar em alterar jogadores
+  //função responsável por iniciar o jogo e fazer as limpezas necessárias
   function startGame() {
     setBoard(Array(9).fill(null));
     setDraw(false);
