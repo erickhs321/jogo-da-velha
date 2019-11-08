@@ -24,7 +24,7 @@ export default function Home(props) {
         throw "O tamanho do nome deve ter no máximo 12 caracteres";
       } else {
         setPlayer1(player1Trim);
-        setPlayer1(player2Trim);
+        setPlayer2(player2Trim);
         setMessage("");
         startGame();
       }
