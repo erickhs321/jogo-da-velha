@@ -5,7 +5,7 @@ export default function Button(props) {
   const { text, onClick, disabled } = props;
 
   return (
-    <button onClick={onClick} disabled={disabled}>
+    <button id="button" onClick={onClick} disabled={disabled}>
       {text}
     </button>
   );

@@ -1,4 +1,4 @@
-#information-box {
+#information-box div {
   width: 300px;
   box-sizing: border-box;
   height: 60px;
@@ -14,19 +14,19 @@
   font-family: Roboto Mono;
 }
 
-.default {
+#information-box .default {
   background: linear-gradient(176.4deg, #30cb76 9.19%, #18ca68 91.81%);
 }
 
-.finish {
+#information-box .finish {
   background: linear-gradient(175.8deg, #ff5c85 9.19%, #ff3266 91.81%);
 }
 
-.default span span {
+#information-box .default span span {
   font-weight: bold;
 }
 
-.finish span {
+#information-box .finish span {
   font-weight: bold;
   font-size: 20px;
 }

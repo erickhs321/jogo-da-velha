@@ -1,4 +1,4 @@
-button {
+#button {
   font-family: Roboto Mono;
   min-height: 40px;
   min-width: 145px;
@@ -11,17 +11,17 @@ button {
   font-weight: bold;
 }
 
-button:hover:not([disabled]) {
+#button:hover:not([disabled]) {
   color: #fff;
   background-color: #34515e;
   cursor: pointer;
 }
 
-button:focus {
+#button:focus {
   outline: 0;
 }
 
-button[disabled] {
+#button[disabled] {
   cursor: not-allowed;
   opacity: 0.5;
 }

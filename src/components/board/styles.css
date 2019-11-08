@@ -38,11 +38,11 @@
     flex-direction: column;
   }
 
-  Button {
+  #buttons-container button {
     width: 100%;
   }
 
-  Button:first-of-type {
+  #buttons-container button:first-of-type {
     margin-bottom: 8px;
   }
 }

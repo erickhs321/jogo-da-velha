@@ -4,7 +4,7 @@
   justify-content: center;
 }
 
-#buttons-container button {
+#buttons-container button:first-of-type {
   margin-right: 10px;
 }
 
