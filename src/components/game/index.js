@@ -83,7 +83,7 @@ export default function Game() {
     setGameIsRunning(false);
   }
 
-  //verifica se ouve um empate, se houver registra +1 para os dois jogadores
+  //verifica se houve um empate
   function calculateDraw(board) {
     let draw = false;
     if (!winner && !draw) {
@@ -91,8 +91,6 @@ export default function Game() {
       if (!haveAnyEmptySquares) {
         draw = true;
         setDraw(true);
-        setPlayer1Victories(player1Victories + 1);
-        setPlayer2Victories(player2Victories + 1);
         setMatchIsOver(true);
       } else {
         setDraw(false);
