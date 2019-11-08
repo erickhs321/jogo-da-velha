@@ -43,6 +43,7 @@ export default function Game() {
     getPlayTime(turn, true);
   }
 
+  // registra a hora que a jogada começa e termina
   function getPlayTime(turn, saveOne) {
     const date = Date.now();
     if (saveOne || draw) {
@@ -83,7 +84,7 @@ export default function Game() {
     setGameIsRunning(false);
   }
 
-  //verifica se ouve um empate
+  //verifica se ouve um empate, se houver registra +1 para os dois jogadores
   function calculateDraw(board) {
     let draw = false;
     if (!winner && !draw) {
@@ -102,8 +103,8 @@ export default function Game() {
   }
 
   /*
-    verificar se há um ganhador e quando ouver atribuir ele a variável
-    winner do estado
+    verificar se há um ganhador e quando houver atribui ele a variável winner
+    incrementa a variável de vitória
   */
   function calculateWinner(board) {
     const lines = [

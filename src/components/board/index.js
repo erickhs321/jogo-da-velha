@@ -17,6 +17,7 @@ export default function Board(props) {
     draw
   } = props;
 
+  // renderiza os quadrados
   function renderSquare(i) {
     return (
       <Square
@@ -30,10 +31,12 @@ export default function Board(props) {
     );
   }
 
+  //verifica a posição do tabuleiro é de uma jogada vencedora
   function isWinningMove(i) {
     return winningMove.includes(i);
   }
 
+  // função responsável por registrar os cliques
   function handleClick(i) {
     const squares = board.slice();
     if (winner || squares[i]) {
