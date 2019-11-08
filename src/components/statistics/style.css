@@ -41,13 +41,11 @@
   height: 20px;
 }
 .row:nth-child(1) {
-  padding-right: 11%;
-  padding-left: 11%;
+  width: 82%;
 }
 
 .row:nth-child(2) {
-  padding-right: 9.2%;
-  padding-left: 9.2%;
+  width: 85.5%;
 }
 
 .container-time {
@@ -135,6 +133,15 @@ h2 {
   #statistics {
     width: 90%;
   }
+
+  .row:nth-child(1) {
+    width: 80%;
+  }
+
+  .row:nth-child(2) {
+    width: 84.2%;
+  }
+
   .time-value,
   .time-title,
   .time-total {
