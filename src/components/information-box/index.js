@@ -10,7 +10,7 @@ export default function InformationBox(props) {
           Vez de: <span>{turn}</span>
         </span>
       )}
-      {winner && !draw && <span>{winner} Venceu!</span>}
+      {winner && !draw && <span>{winner} venceu!</span>}
       {!winner && draw && <span>Empate!</span>}
     </div>
   );
