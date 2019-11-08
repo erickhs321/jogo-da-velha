@@ -1,0 +1,25 @@
+#alert {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  width: 100%;
+}
+
+#alert span {
+  font-family: Roboto Mono;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 35px;
+  font-size: 11.5px;
+}
+
+#alert .error {
+  color: #721c24 !important;
+  background-color: #f8d7da !important;
+  border-color: 1px solid #f5c6cb;
+}

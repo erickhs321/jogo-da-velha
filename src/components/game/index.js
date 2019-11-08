@@ -15,8 +15,8 @@ export default function Game() {
   const [winningMove, setWinningMove] = useState([]);
   const [draw, setDraw] = useState(false);
   const [winner, setWinner] = useState(false);
-  const [player1, setPlayer1] = useState("Jogador 1");
-  const [player2, setPlayer2] = useState("Jogador 2");
+  const [player1, setPlayer1] = useState("");
+  const [player2, setPlayer2] = useState("");
   const [player1Victories, setPlayer1Victories] = useState(0);
   const [player2Victories, setPlayer2Victories] = useState(0);
   const [timePlayer1, setTimePlayer1] = useState([]);
@@ -63,20 +63,19 @@ export default function Game() {
   //função responsável por iniciar o jogo
   //limpar dados de tempo somente quando jogador clicar em alterar jogadores
   function startGame() {
-    if (!(player1 === "" || player2 === "")) {
-      if (!(player1.length > 12 || player2.length > 12)) {
-        setBoard(Array(9).fill(null));
-        setDraw(false);
-        setTurn("");
-        setWinner(false);
-        setGameIsRunning(true);
-        setMatchIsOver(false);
-        rafflePlayer();
-      }
-    }
+    setBoard(Array(9).fill(null));
+    setDraw(false);
+    setTurn("");
+    setWinner(false);
+    setGameIsRunning(true);
+    setMatchIsOver(false);
+    rafflePlayer();
   }
 
+  // trocar players
   function changePlayers() {
+    setPlayer1("");
+    setPlayer2("");
     setPlayer1Victories(0);
     setPlayer2Victories(0);
     setTimePlayer1([]);
