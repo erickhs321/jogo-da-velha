@@ -12,6 +12,10 @@ export default function Home(props) {
   const [message, setMessage] = useState("");
   const [typeAlert, setTypeAlert] = useState("");
 
+  /*
+    função responsável por fazer as validações no formulário,
+    caso esteja tudo correto ela inicia a partida
+  */
   function validateForm() {
     const player1Trim = player1.trim();
     const player2Trim = player2.trim();

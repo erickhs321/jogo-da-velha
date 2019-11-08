@@ -55,6 +55,10 @@
   align-items: center;
 }
 
+.internal-container-time {
+  width: 100%;
+}
+
 .total-time {
   justify-content: center;
   flex-direction: column;
@@ -151,7 +155,7 @@ h2 {
   }
 
   #statistics {
-    width: 95%;
+    width: 90%;
   }
 
   .time-value,

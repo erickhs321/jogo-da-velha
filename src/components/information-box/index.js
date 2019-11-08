@@ -3,6 +3,7 @@ import "./styles.css";
 
 export default function InformationBox(props) {
   const { winner, turn, draw } = props;
+
   return (
     <div id="information-box">
       <div className={winner || draw ? "finish" : "default"}>

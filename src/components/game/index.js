@@ -72,7 +72,7 @@ export default function Game() {
     rafflePlayer();
   }
 
-  // trocar players
+  // trocar players e fazer as limpezas necessárias
   function changePlayers() {
     setPlayer1("");
     setPlayer2("");

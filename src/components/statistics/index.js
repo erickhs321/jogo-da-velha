@@ -29,17 +29,22 @@ export default function Statistics(props) {
     calculateTotalOfAllPlayers(timePlayer1Total, timePlayer2Total)
   );
 
+  // calcula tempo total
   function calculateTotalOfAllPlayers(timePlayer1Total, timePlayer2Total) {
     return timePlayer1Total + timePlayer2Total;
   }
 
+  //calcular tempo total de jogadas de um player
   function calculateTimeTotalOfPlayer(timePlayer) {
     return timePlayer.reduce((acc, current) => current - acc);
   }
 
+  //calcular média de tempo de jogadas de um player
   function calculateAverage(timePlayerTotal, timePlayerLength) {
     return timePlayerTotal / timePlayerLength;
   }
+
+  //função responsável por formatar o tempo
 
   function formatTime(millis) {
     let hours = Math.floor(millis / 3600000);
@@ -53,7 +58,7 @@ export default function Statistics(props) {
     }
 
     return `${hours ? hours + "h" : ""}${minutes ? minutes + "m" : ""}${
-      seconds ? seconds + "s" : ""
+      seconds !== "0" ? seconds + "s" : ""
     }`;
   }
 
@@ -75,23 +80,25 @@ export default function Statistics(props) {
             </div>
           </div>
           <div className="container-time">
-            <div className="row">
-              <p className="time-value player-1">
-                {formatTime(timePlayer1Average)}
-              </p>
-              <p className="time-title">Tempo médio por jogada</p>
-              <p className="time-value player-2">
-                {formatTime(timePlayer2Average)}
-              </p>
-            </div>
-            <div className="row">
-              <p className="time-value player-1">
-                {formatTime(timePlayer1Total)}
-              </p>
-              <p className="time-title">Tempo total jogado</p>
-              <p className="time-value player-2">
-                {formatTime(timePlayer2Total)}
-              </p>
+            <div className="internal-container-time">
+              <div className="row">
+                <p className="time-value player-1">
+                  {formatTime(timePlayer1Average)}
+                </p>
+                <p className="time-title">Tempo médio por jogada</p>
+                <p className="time-value player-2">
+                  {formatTime(timePlayer2Average)}
+                </p>
+              </div>
+              <div className="row">
+                <p className="time-value player-1">
+                  {formatTime(timePlayer1Total)}
+                </p>
+                <p className="time-title">Tempo total jogado</p>
+                <p className="time-value player-2">
+                  {formatTime(timePlayer2Total)}
+                </p>
+              </div>
             </div>
           </div>
           <div className="row total-time">
