@@ -49,7 +49,7 @@ export default function Statistics(props) {
   function formatTime(millis) {
     let hours = Math.floor(millis / 3600000);
     let minutes = Math.floor((millis % 3600000) / 60000);
-    let seconds = (millis % 60000) / 1000;
+    let seconds = Math.floor(millis % 60000) / 1000;
 
     if (minutes) {
       seconds = seconds.toFixed(0);
