@@ -7,6 +7,6 @@
   cursor: pointer;
 }
 
-.notWinningMove svg path {
+#square.notWinningMove svg path {
   fill: #aabdc6;
 }

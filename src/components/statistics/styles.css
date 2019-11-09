@@ -41,12 +41,17 @@
   height: 20px;
 }
 
+.row:nth-child(1) {
+  margin-bottom: 7px;
+}
+
 .container-time {
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 69.5px;
   width: 100%;
-  padding-top: 16px;
-  padding-bottom: 16px;
   margin-top: 28.5px;
   border-top: 1px solid #aabdc6;
   border-bottom: 1px solid #aabdc6;
@@ -135,18 +140,18 @@ h2 {
 
 .time-value,
 .time-title,
-.time-total {
+.time-total-value {
   font-size: 12px;
 }
 
 .time-title,
-.time-total {
+.time-total-value {
   color: #607d8b;
 }
 
-.time-total {
+.time-total-value {
   font-weight: bold;
-  margin-top: -10px;
+  margin-top: -9px;
 }
 
 @media screen and (max-width: 451px) {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ReactComponent as Close } from "../../assets/Fechar.svg";
-import "./style.css";
+import "./styles.css";
 
 export default function Statistics(props) {
   const {
@@ -103,7 +103,7 @@ export default function Statistics(props) {
           </div>
           <div className="row total-time">
             <p className="time-title">Tempo total geral</p>
-            <p className="time-total">{formatTime(totalTime)}</p>
+            <p className="time-total-value">{formatTime(totalTime)}</p>
           </div>
         </>
       </div>
